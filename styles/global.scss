@@ -5,8 +5,12 @@
 :root {
   --background-strong: #{$shade-50};
   --background: #{$shade-100};
+  --background-weak: #{$shade-200};
 
+  --foreground-weak: #{$shade-800};
   --foreground: #{$shade-900};
+  --foreground-strong: #{$shade-950};
+
   --text: #{$shade-950};
 }
 
@@ -28,7 +32,8 @@ body {
   left: 0;
   overflow: hidden;
 
-  font-size: 15pt;
+  font-size: 12pt;
+  font-weight: 400;
   line-height: 1.25em;
 
   * {
