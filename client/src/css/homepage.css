@@ -1,8 +1,0 @@
-.profile-card-container {
-  display: flex;
-  width: 1214px;
-  height: 950px;
-
-  background: var(--clr-grayWhite);
-  border-radius: 0px 40px 40px 0px;
-}
