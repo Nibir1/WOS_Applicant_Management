@@ -3,7 +3,9 @@
 @use './palette.scss' as *;
 
 :root {
+  --background-strong: #{$shade-50};
   --background: #{$shade-100};
+
   --foreground: #{$shade-900};
   --text: #{$shade-950};
 }
@@ -26,7 +28,6 @@ body {
   left: 0;
   overflow: hidden;
 
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 15pt;
   line-height: 1.25em;
 
