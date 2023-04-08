@@ -9,7 +9,15 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
+		"@types/node": "18.15.11",
+		"@types/react": "18.0.33",
 		"eslint-config-next": "^13.3.0"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
 	},
 	"contributors": [
 		{
