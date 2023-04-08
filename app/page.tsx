@@ -1,5 +1,11 @@
-import React from 'react';
+import Link from 'next/link';
 
-export default function Page() {
-  return <h1>Hello, World!</h1>;
+import type { ReactNode } from 'react';
+
+export default function IndexPage():ReactNode {
+  return <>
+    <h1>Hello, World!</h1>
+    <Link href='/login'>To Login</Link>
+    <Link href='/dashboard'>To Dashboard</Link>
+  </>;
 }
