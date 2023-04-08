@@ -8,12 +8,24 @@ import type { PressHandler } from '@components/types';
 import styles from './Button.module.scss';
 
 export default ({
-  onPress,
+  className = '',
+  type = 'button',
   disabled = false,
+
+  onPress,
 
   children,
 }: {
-  onPress: PressHandler;
+  className?: string;
+  type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
+
+  onPress: PressHandler;
+
   children: ReactNode;
-}) => <AriaButton className={styles.button} onPress={onPress} isDisabled={disabled}>{ children }</AriaButton>
+}) => <AriaButton className={[styles.button, className].join(' ')}
+  type={type}
+  isDisabled={disabled}
+  onPress={onPress} >
+    { children }
+</AriaButton>
