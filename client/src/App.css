@@ -1,0 +1,21 @@
+#root {
+  font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: #ffffff;
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: #393e46;
+  background-color: #ffffff;
+
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+:root {
+  --clr-grayWhite: #eeeeee;
+  --clr-black: #393e46;
+  --clr-gray: #8d8e92;
+  --clr-white: #ffffff;
+}
