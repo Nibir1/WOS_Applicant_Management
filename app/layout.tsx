@@ -1,12 +1,17 @@
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
-import './global.scss';
+import BackgroundImage from '@components/server/Background';
+
+import '@styles/global.scss';
 
 export default function RootLayout({ children }: { children: ReactNode }):ReactNode {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <BackgroundImage />
+        {children}
+      </body>
     </html>
   );
 }
