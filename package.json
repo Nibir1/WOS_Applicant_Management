@@ -1,0 +1,24 @@
+{
+	"name": "wos_applicant_management",
+	"displayName": "WOS Applicant Management Application",
+	"description": "Web application for managing WOS Applicants",
+	"version": "0.1.0",
+	"dependencies": {
+		"next": "^13.3.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"eslint-config-next": "^13.3.0"
+	},
+	"contributors": [
+		{
+			"name": "Chris Pikul",
+			"email": "ChrisPikul510@gmail.com",
+			"url": "https://github.com/chris-pikul"
+		}
+	],
+	"repository": "github:Nabir1/WOS_Applicant_Management",
+	"license": "UNLICENSED",
+	"private": true
+}
