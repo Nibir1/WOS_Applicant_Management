@@ -19,7 +19,7 @@ const saveThemeChoice = dark => {
 
 const ToggleTheme = () => {
   const defaultDark = useMemo(() => {
-    if(document && 'documentElement' in document)
+    if(typeof document !== 'undefined' && 'documentElement' in document)
       return document.documentElement.classList.contains('dark-theme');
     return false;
   }, []);
