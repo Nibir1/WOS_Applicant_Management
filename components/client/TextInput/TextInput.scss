@@ -61,6 +61,7 @@
     &:has(:focus) {
       background: var(--background-strong);
       color: var(--foreground-strong);
+      box-shadow: 0 0.1em 1em rgba(0 0 0 / 0.2);
 
       .input-text-icon {
         background: var(--background-strong);
