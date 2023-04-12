@@ -70,10 +70,57 @@ body {
   }
 }
 
+.vert-center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 .text-error {
   font-size: 0.75em;
   line-height: 1.125em;
   color: var(--text-error);
+}
+
+a {
+  position: relative;
+  padding: 0.125em 0.25em;
+
+  text-decoration: none;
+  outline: none;
+
+  color: var(--foreground-weak);
+
+  --deco-width: 1px;
+  --deco-color: var(--foreground-weak);
+
+  &:hover {
+    color: var(--foreground);
+    --deco-width: 1px;
+    --deco-color: var(--foreground-weak);
+  }
+
+  &:focus {
+    --deco-width: 2px;
+  }
+
+  &:active {
+    color: var(--foreground-strong);
+    --deco-width: 2px;
+    --deco-color: var(--foreground-strong);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: var(--deco-width);
+    background: var(--deco-color);
+  }
 }
 
 input {

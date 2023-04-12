@@ -9,8 +9,7 @@ export default () => {
   const handleSubmit = () => {};
 
   return <form className={styles.loginForm}>
-    <h1>Sign-In to WOS</h1>
-    
+
     <EmailInput id='loginEmail'
       name='accountEmail'
       label='Account Email Address'
@@ -30,6 +29,5 @@ export default () => {
     
     <Button type='submit' onPress={handleSubmit}>Sign In</Button>
     
-    <Link href='/login/forgot-password'>Forgot Password?</Link>
   </form>
 };
