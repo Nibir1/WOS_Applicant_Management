@@ -19,7 +19,13 @@
 }
 
 .loginForm {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+
   flex: 1;
+  margin-top: 4rem; // To recenter from toolbar
 }
 
 .loginToolbar {

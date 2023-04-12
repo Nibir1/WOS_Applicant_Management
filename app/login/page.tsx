@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import LoginForm from './LoginForm.client';
 import ToggleTheme from './ToggleTheme.client';
 
 import styles from './login-page.module.scss';
@@ -7,7 +8,7 @@ export default function LoginPage():ReactNode {
   return <div className={ styles.loginContainer }>
     <section className={ styles.loginPrimary }>
       <main className={ styles.loginForm}>
-        <h1>Sign-In to WOS</h1>
+        <LoginForm />
       </main>
       <div className={ styles.loginToolbar}>
         <ToggleTheme />
