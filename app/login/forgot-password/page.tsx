@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 
-import ToggleTheme from '../ToggleTheme.client';
+import ToggleTheme from '../../../components/client/ToggleTheme';
 
 import styles from './page.module.scss';
 export default function ForgotPasswordPage():ReactNode {

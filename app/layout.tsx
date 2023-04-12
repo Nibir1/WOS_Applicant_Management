@@ -1,6 +1,7 @@
 import { Roboto } from 'next/font/google';
 
 import BackgroundImage from '@components/server/Background';
+import ThemeApplier from '@components/client/ThemeApplier';
 
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }):ReactN
   return (
     <html lang="en" className={ roboto.className }>
       <body>
+        <ThemeApplier />
         <BackgroundImage />
         {children}
       </body>

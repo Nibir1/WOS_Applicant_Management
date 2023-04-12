@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 import LoginForm from './LoginForm.client';
-import ToggleTheme from './ToggleTheme.client';
+import ToggleTheme from '@components/client/ToggleTheme';
 
 import styles from './page.module.scss';
 export default function LoginPage():ReactNode {
