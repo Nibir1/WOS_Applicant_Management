@@ -15,7 +15,7 @@
 
     font-size: 1em;
   
-    background: var(--background);
+    background: var(--background-strong);
     border: 1px solid var(--background-weaker);
     border-radius: 0.1em;
   
@@ -64,12 +64,28 @@
 
       .input-text-icon {
         background: var(--background-strong);
+
+        svg {
+          transform: scale(1.1);
+        }
+      }
+
+      input {
+        font-weight: 700;
       }
     }
   
     &:has([data-hovered]) {
       background: var(--background-strong);
       color: var(--foreground);
+
+      .input-text-icon > svg {
+        transform: scale(1.15);
+      }
+
+      input {
+        font-weight: 500;
+      }
     }
 
     &:has(:invalid){
