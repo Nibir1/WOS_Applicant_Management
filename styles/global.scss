@@ -6,12 +6,16 @@
   --background-strong: #{$shade-50};
   --background: #{$shade-100};
   --background-weak: #{$shade-200};
+  --background-weaker: #{$shade-300};
 
+  --foreground-weaker: #{$shade-700};
   --foreground-weak: #{$shade-800};
   --foreground: #{$shade-900};
   --foreground-strong: #{$shade-950};
 
   --text: #{$shade-950};
+  --text-valid: #{$green-800};
+  --text-error: #{$red-900};
 }
 
 html {
@@ -39,5 +43,44 @@ body {
   * {
     box-sizing: border-box;
     line-height: 1.25em;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+
+  color: inherit;
+  fill: currentColor;
+
+  * > {
+    fill: currentColor;
+  }
+}
+
+.text-error {
+  font-size: 0.75em;
+  line-height: 1.125em;
+  color: var(--text-error);
+}
+
+input {
+  font-family: inherit;
+
+  &::placeholder, &::-ms-input-placeholder {
+    color: var(--foreground-weak);
+    opacity: 1;
   }
 }
