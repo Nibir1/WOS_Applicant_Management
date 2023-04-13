@@ -1,4 +1,5 @@
 import { Roboto } from 'next/font/google';
+import Background from '@components/Background';
 
 import type { ReactNode } from 'react';
 
@@ -14,6 +15,7 @@ const roboto = Roboto({
 import '@styles/global.scss';
 export default function Application({ Component, pageProps }):ReactNode {
   return <main className={ roboto.className }>
+    <Background />
     <Component {...pageProps} />
   </main>
 };
