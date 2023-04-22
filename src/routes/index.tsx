@@ -4,7 +4,7 @@ import type { LoaderFunctionArgs } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
 import RootLayout from './RootLayout';
 
-import LoginPage from './login';
+import applicationRoutes from './routes';
 
 /**
  * Used by the root router path "/" to exactly match if we are at the index
@@ -39,12 +39,7 @@ const browserRouter = createBrowserRouter([
     children: [
       {
         errorElement: <ErrorPage />,
-        children: [
-          {
-            path: '/login',
-            element: <LoginPage />,
-          }
-        ]
+        children: applicationRoutes,
       }
     ],
   }

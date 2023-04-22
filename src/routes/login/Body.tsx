@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Form } from 'react-router-dom';
 
 import EmailInput from '@components/TextInput/EmailInput';
 import PasswordInput from '@components/TextInput/PasswordInput';
@@ -10,7 +10,7 @@ export default function LoginBody() {
     <div className='align-center'>
       <h1>Sign-In to WOS</h1>
 
-      <form className='align-center'>
+      <Form method='post' className='align-center'>
         <EmailInput id='loginEmail'
           name='accountEmail'
           label='Account Email Address'
@@ -29,7 +29,7 @@ export default function LoginBody() {
           />
         
         <Button type='submit'>Sign In</Button>
-      </form>
+      </Form>
 
       <Link to='/forgot-password'>Forgot your password?</Link>
     </div>
