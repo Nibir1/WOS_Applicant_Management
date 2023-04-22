@@ -1,12 +1,12 @@
-import { Link, Form, useLocation, useNavigate } from 'react-router-dom';
-import { useSession } from '@/session';
+import { useEffect } from 'react';
+import { Link, Form } from 'react-router-dom';
 import { checkError, useActionData } from '@/utils';
 
 import EmailInput from '@components/TextInput/EmailInput';
 import PasswordInput from '@components/TextInput/PasswordInput';
 import Button from '@components/Button';
 
-import type { OptSessionUser } from '@/session';
+import type { SessionUser, OptSessionUser } from '@/session';
 
 /**
  * Defines the typescript form data to be used by `./action.ts` to
@@ -31,22 +31,19 @@ export type LoginFormResponse = {
 };
 
 import './Body.scss';
-export default function LoginBody() {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const session = useSession();
+export default function LoginBody({
+  onSuccess,
+}: {
+  onSuccess: (usr:SessionUser) => void;
+}) {
   const response = useActionData<LoginFormResponse>();
 
-  const backTo = location.state?.from?.pathname || "/dashboard";
-
-  // See if login was successful  
-  if(session && response && response.user) {
-    session.setUser(response.user);
-    navigate(backTo, { replace: true });
-    return null;
-  }
-
+  // See if login was successful
+  useEffect(() => {
+    if(response && response.user)
+      onSuccess(response.user);
+  }, [ onSuccess, response ]);
+  
   return <section id='page-login-body' className='vert-center'>
     <div className='align-center'>
       <h1>Sign-In to WOS</h1>
