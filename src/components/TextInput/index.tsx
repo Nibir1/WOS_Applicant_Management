@@ -31,7 +31,7 @@ export default function TextInput({
         <Icon name={icon} /> 
       </span>)}
 
-      <Input placeholder={placeholder} />
+      <Input placeholder={placeholder} required={fieldProps.isRequired} />
     </span>
 
     { errorMessage && <Text className='text-error input-text-error' slot="errorMessage">{ errorMessage }</Text> }
