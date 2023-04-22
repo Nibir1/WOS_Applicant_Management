@@ -12,3 +12,5 @@ There are a couple initial files that help make this work.
 From here, each folder provides its own route implementation. Each folder should provide a file `route.tsx` to define the `react-router-dom` route definition for it, AND ANY CHILDREN. Once this is defined, you can import it from the parent route to define the route tree. This way, the individual paths are separated into their own definitions.
 
 See the file `/login/route` for an example.
+
+In addition, I'm starting the convention of keeping the "action" (what happens with form submit), in it's own sub-file as well defined as `action.ts`. Just to help clean things up.
