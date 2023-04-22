@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect } from 'react';
+import { ReactElement, createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { Navigate, useLocation } from 'react-router-dom';
 
 export interface SessionUser {
@@ -77,6 +78,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
   console.log('Session provider rendered');
 
+  console.log('Session provider rendered');
+
   return <SessionContext.Provider value={session} >
     { children }
   </SessionContext.Provider>
@@ -90,11 +93,19 @@ export function SessionRootRedirect() {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function RequireSession({ children }: { children: ReactNode }):any {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function RequireSession({ children }: { children: ReactNode }):any {
   const session = useSession();
   const location = useLocation();
 
   if(!isSessionValid(session))
     return <Navigate to='/login' state={{ from: location }} replace />;
+  const location = useLocation();
 
+  if(!isSessionValid(session))
+    return <Navigate to='/login' state={{ from: location }} replace />;
+
+  return children;
+}
   return children;
 }
