@@ -10,6 +10,7 @@ async function performLogin(email:string, password:string):Promise<OptSessionUse
       id: '1234',
       name: 'William Testington',
       picture: '',
+      designation: 'Supervisor Supreme',
     };
   }
 

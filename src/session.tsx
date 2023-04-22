@@ -7,6 +7,7 @@ export interface SessionUser {
   id: string;
   name: string;
   picture: string;
+  designation: string;
 }
 export type OptSessionUser = SessionUser | null;
 
@@ -95,7 +96,7 @@ export function RequireSession({ children }: { children: ReactNode }):any {
   const session = useSession();
 
   if(!isSessionValid(session))
-    return <Navigate to='/login' state={{ from: location }} replace />;
+    return <Navigate to='/login' replace />;
 
   return children;
 }
