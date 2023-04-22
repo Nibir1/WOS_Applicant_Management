@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
@@ -34,7 +34,31 @@ export function useValidSession() {
 }
 
 export function SessionProvider({ children }: { children: ReactNode }) {
-  const [ user, setStateUser ] = useState<OptSessionUser>(null);
+  const [ user, setStateUser ] = useState<OptSessionUser>(() => {
+    // Rehydrate from storage
+    if('localStorage' in window) {
+      const existing = localStorage.getItem('session');
+      if(existing) {
+        console.info('Session rehydrated from storage');
+        return JSON.parse(existing);
+      }
+    }
+
+    return null;
+  });
+
+  // Persist to storage
+  useEffect(() => {
+    if('localStorage' in window) {
+      if(user) {
+        const stamped = JSON.stringify(user);
+        localStorage.setItem('session', stamped);
+        console.info('Session persisted');
+      } else {
+        localStorage.removeItem('session');
+      }
+    }
+  }, [ user ]);
 
   const setUser = (user:SessionUser) => {
     if(user && user.id && user.name)
