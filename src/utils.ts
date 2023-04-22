@@ -33,7 +33,7 @@ export function useActionData<T extends Record<string, unknown> = Record<string,
  * @param key String key to search for
  * @param message Message if it matches
  */
-export function checkError(errors:(Record<string, unknown>|null), key:string, message:string):(string|undefined) {
+export function checkError(key:string, message:string, errors:(Record<string, unknown>|null|undefined)):(string|undefined) {
   if(errors && errors[key])
     return message;
   return undefined;

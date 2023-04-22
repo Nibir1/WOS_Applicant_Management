@@ -1,9 +1,12 @@
-import { Link, Form } from 'react-router-dom';
+import { Link, Form, useLocation, useNavigate } from 'react-router-dom';
+import { useSession } from '@/session';
 import { checkError, useActionData } from '@/utils';
 
 import EmailInput from '@components/TextInput/EmailInput';
 import PasswordInput from '@components/TextInput/PasswordInput';
 import Button from '@components/Button';
+
+import type { OptSessionUser } from '@/session';
 
 /**
  * Defines the typescript form data to be used by `./action.ts` to
@@ -17,21 +20,38 @@ export type LoginFormData = {
 /**
  * Defines the typescript object structure for form validation errors.
  */
-export type LoginFormErrors = {
-  badCredentials?: boolean;
-  email?: boolean;
-  password?: boolean;
+export type LoginFormResponse = {
+  user: OptSessionUser;
+
+  errors: {
+    badCredentials?: boolean;
+    email?: boolean;
+    password?: boolean;
+  }
 };
 
 import './Body.scss';
 export default function LoginBody() {
-  const errors = useActionData<LoginFormErrors>();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const session = useSession();
+  const response = useActionData<LoginFormResponse>();
+
+  const backTo = location.state?.from?.pathname || "/dashboard";
+
+  // See if login was successful  
+  if(session && response && response.user) {
+    session.setUser(response.user);
+    navigate(backTo, { replace: true });
+    return null;
+  }
 
   return <section id='page-login-body' className='vert-center'>
     <div className='align-center'>
       <h1>Sign-In to WOS</h1>
 
-      { errors && errors.badCredentials && <span className='text-error'>
+      { response && response.errors.badCredentials && <span className='text-error'>
         Invalid email address, or password. Please check the information entered and try again.
       </span> }
 
@@ -40,7 +60,7 @@ export default function LoginBody() {
           name='accountEmail'
           label='Account Email Address'
           hideLabel
-          errorMessage={checkError(errors, 'email', 'Invalid email address')}
+          errorMessage={checkError('email', 'Invalid email address', response?.errors)}
           autoComplete='email'
           autoFocus
           isRequired
@@ -50,7 +70,7 @@ export default function LoginBody() {
           name='accountPassword'
           label='Account password'
           hideLabel
-          errorMessage={checkError(errors, 'password', 'Invalid password format')}
+          errorMessage={checkError('password', 'Invalid password format', response?.errors)}
           autoComplete='current-password'
           isRequired
           />
