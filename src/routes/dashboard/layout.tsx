@@ -9,7 +9,9 @@ export default function DashboardLayout() {
     <article id='layout-dashboard' className='page'>
       <SideBar />
       
-      <Outlet />
+      <section id='layout-dashboard-content'>
+        <Outlet />
+      </section>
     </article>
   </RequireSession>
 }

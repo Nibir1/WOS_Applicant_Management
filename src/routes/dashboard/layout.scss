@@ -14,4 +14,16 @@
   max-height: 800px;
 
   border: 2px solid var(--foreground);
+
+  #layout-dashboard-content {
+    flex: 1;
+    overflow: hidden;
+
+    .dashboard-page {
+      width: 100%;
+      padding: 1rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
 }

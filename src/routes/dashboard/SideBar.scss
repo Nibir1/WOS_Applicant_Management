@@ -14,7 +14,7 @@
 
   .wayout-title {
     margin-bottom: 2rem;
-    
+
     font-size: 1.25rem;
   }
 
@@ -40,15 +40,15 @@
 
       &::after { display: none; }
 
+      &:hover, &:focus {
+        background: var(--midtone);
+        box-shadow: 0 0.2em 0.5em rgb(0 0 0 / 0.2);
+      }
+
       &.active {
         background: var(--background-weak);
         color: var(--foreground);
         box-shadow: none;
-      }
-
-      &:hover, &:focus {
-        background: var(--midtone);
-        box-shadow: 0 0.2em 0.5em rgb(0 0 0 / 0.2);
       }
 
       &:active {
