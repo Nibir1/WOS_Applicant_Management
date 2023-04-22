@@ -20,8 +20,17 @@ export type OptSession = Session | null;
 
 const SessionContext = createContext<OptSession>(null);
 
+export function isSessionValid(session:OptSession):boolean {
+  return !!(session && session.user && session.user.id);
+}
+
 export function useSession() {
   return useContext<OptSession>(SessionContext);
+}
+
+export function useValidSession() {
+  const session = useSession();
+  return isSessionValid(session);
 }
 
 export function SessionProvider({ children }: { children: ReactNode }) {
